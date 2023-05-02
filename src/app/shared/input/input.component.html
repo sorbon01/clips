@@ -1,0 +1,44 @@
+<input [formControl]="control" [type]="type" 
+    class="block w-full py-1.5 px-3 text-gray-200 border border-gray-400 transition
+    duration-500 focus:outline-none rounded bg-transparent focus:border-indigo-400"
+     [placeholder]="placeholder"
+     [mask]="format"
+     [dropSpecialCharacters]="false"
+     />
+<p *ngIf="control.touched && control.dirty && control.errors" class="text-red-400" >
+
+    <span *ngIf="control.errors?.['required']">
+        Field is required
+    </span>
+    <span *ngIf="control.errors?.['minlength']">
+        The value you inputted is
+        {{ control.errors['minlength'].actualLength }}
+        characters long.
+        It must be at least
+        {{ control.errors['minlength'].requiredLength }}
+        characters long.
+    </span>
+    <span *ngIf="control.errors?.['email']" class="text-red-400">
+        You must enter a valid email.
+    </span>
+    <span *ngIf="control.errors?.['max']">
+        Value too high.
+    </span>
+    <span *ngIf="control.errors?.['min']">
+        Value too low.
+    </span> 
+    
+    <span *ngIf="control.errors?.['noMatch']">
+        Password do not match.
+    </span>
+
+    <span *ngIf="control.errors?.['emailTaken']">
+        Email taken. Please try another email.
+    </span>
+
+    <span *ngIf="control.errors?.['pattern']">
+    Password must be at least 8 characters long, have 1
+    uppercase letter, 1 lowercase letter, and 1 number.
+    </span>
+
+</p>
