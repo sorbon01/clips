@@ -8,7 +8,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 export class ManageComponent implements OnInit {
   videoOrder = '1'
-
+  sor=''
   constructor(
     private router: Router,
     private route:ActivatedRoute
@@ -16,13 +16,21 @@ export class ManageComponent implements OnInit {
 
   ngOnInit(): void { 
     this.route.queryParamMap.subscribe((params:Params)=>{
-      this.videoOrder = params['sort'] ==='2'?params['sort'] : '1'
+      console.log(params['params']['sort']);
+      this.sor=params['sort'];
+      this.videoOrder = params['params']['sort'] ==='2'?params['params']['sort'] : '1'
     })
   }
 
   sort(event:Event){
     const { value } = (event.target as HTMLSelectElement)
-    this.router.navigateByUrl(`/manage?sort=${value}`)
+    this.router.navigate([],{
+      relativeTo:this.route,
+      queryParams:{
+        sort:value
+      }
+    })
+    //this.router.navigateByUrl(`/manage?sort=${value}`)
   }
 
 }

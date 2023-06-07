@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UploadComponent } from './upload.component';
+import { NotFoundComponent } from './not-found.component';
 
-describe('UploadComponent', () => {
-  let component: UploadComponent;
-  let fixture: ComponentFixture<UploadComponent>;
+describe('NotFoundComponent', () => {
+  let component: NotFoundComponent;
+  let fixture: ComponentFixture<NotFoundComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UploadComponent ]
+      declarations: [ NotFoundComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UploadComponent);
+    fixture = TestBed.createComponent(NotFoundComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
