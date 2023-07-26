@@ -5,6 +5,7 @@ import { createFFmpeg, fetchFile } from '@ffmpeg/ffmpeg';
   providedIn: 'root'
 })
 export class FfmpegService {
+  isRunning = false
   public isReady = false
   private ffmpeg 
 
@@ -22,6 +23,7 @@ export class FfmpegService {
    }
 
    async getScreenshots(file:File){
+      this.isRunning = true
       const data = await fetchFile(file)
 
       this.ffmpeg.FS('writeFile', file.name, data)
@@ -34,7 +36,7 @@ export class FfmpegService {
           //Input
         '-i',file.name,
         // Output Options
-        '-ss',`00:01:0${second}`,
+        '-ss',`00:00:0${second}`,
         '-frames:v','1',
         '-filter:v','scale=510:-1',
         // Output
@@ -60,7 +62,14 @@ export class FfmpegService {
         
         screenshots.push(screenshotURL)
       })
-
+      this.isRunning = false
       return screenshots
+   }
+
+   async blobFromURL(url: string){
+    const response = await fetch(url)
+    const blob = await response.blob()
+
+    return blob
    }
 }
