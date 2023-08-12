@@ -13,7 +13,7 @@ import { ActivatedRoute,NavigationEnd } from '@angular/router';
 export class AuthService {
 
   private userCollection: AngularFirestoreCollection<IUser>
-  public isAuthentication$ : Observable<boolean>
+  public isAuthenticated$ : Observable<boolean>
   public isAuthenticatedWithDelay$ : Observable<boolean>
   private redirect = false
 
@@ -25,10 +25,10 @@ export class AuthService {
 
     ) { 
       this.userCollection = db.collection('users')
-      this.isAuthentication$ = auth.user.pipe(
+      this.isAuthenticated$ = auth.user.pipe(
         map(user => !!user)
       )
-      this.isAuthenticatedWithDelay$= this.isAuthentication$.pipe(
+      this.isAuthenticatedWithDelay$= this.isAuthenticated$.pipe(
         delay(1000)
         )
         this.router.events.pipe(
@@ -69,7 +69,6 @@ export class AuthService {
   }
   
   public async logout($event:Event){
-    debugger
     if($event)
       $event.preventDefault()
     this.auth.signOut();
