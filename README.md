@@ -1,4 +1,14 @@
-# Clips
+# Clips - Angular - Firebase
+# [➡️Demo-Clips⬅️](https://clips-sorbon01.vercel.app/)
+![main](./imgs%20for%20gitHub/n1.jpg)
+![main](./imgs%20for%20gitHub/n2.jpg)
+![main](./imgs%20for%20gitHub/n3.jpg)
+![main](./imgs%20for%20gitHub/n4.jpg)
+![main](./imgs%20for%20gitHub/n5.jpg)
+![main](./imgs%20for%20gitHub/n6.jpg)
+
+
+## Clips -  Commands 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.6.
 
@@ -6,9 +16,6 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
 ## Build
 
